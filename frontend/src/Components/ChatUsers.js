@@ -18,7 +18,7 @@ export default function ChatUsers() {
     useEffect(() => {
         async function fetchUser() {
             try {
-                const response = await axios.get('http://localhost:5000/api/admin/getuser');
+                const response = await axios.get('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/admin/getuser');
                 const { message, ud } = response.data;
                 if (message === 'f') {
                     toast.error('No users available');
@@ -42,7 +42,7 @@ export default function ChatUsers() {
         sto(e)
         const m1=document.getElementById('m1');
         m1.style.display='block'
-         const res=await axios.get(`http://localhost:5000/api/chat/getmsg/${e}`)
+         const res=await axios.get(`https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/chat/getmsg/${e}`)
          const {m}=res.data
          if(m=='f'){
             sf(0)
@@ -61,13 +61,13 @@ export default function ChatUsers() {
         return;
     }
 
-    const res=await axios.post('http://localhost:5000/api/chat/sendmsg',{userId:'Admin',message:inputMessage,to:to})
+    const res=await axios.post('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/chat/sendmsg',{userId:'Admin',message:inputMessage,to:to})
     const {m}=res.data
     if(m=='s'){
         
     setInputMessage(''); 
     inputMessageRef.current.focus(); 
-    const res2=await axios.get(`http://localhost:5000/api/chat/getmsg/${to}`)
+    const res2=await axios.get(`https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/chat/getmsg/${to}`)
     setmessage(res2.data)
 
     }
