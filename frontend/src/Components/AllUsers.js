@@ -14,7 +14,7 @@ export default function AllUsers() {
     useEffect(() => {
         async function fetchUser() {
             try {
-                const response = await axios.get('http://localhost:5000/api/admin/getuser');
+                const response = await axios.get('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/admin/getuser');
                 const { message, ud } = response.data;
                 if (message === 'f') {
                     toast.error('No users available');
@@ -30,10 +30,10 @@ export default function AllUsers() {
 
     async function removeUser(id) {
         try {
-            const res2 = await axios.delete(`http://localhost:5000/api/admin/removeuser/${id}`);
+            const res2 = await axios.delete(`https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/admin/removeuser/${id}`);
             const { message } = res2.data;
             if (message === 's') {
-                const response3 = await axios.get('http://localhost:5000/api/admin/getuser');
+                const response3 = await axios.get('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/admin/getuser');
                 const { message, ud } = response3.data;
                 if (message === 'f') {
                     toast.error('No users available');
@@ -60,7 +60,7 @@ export default function AllUsers() {
         try {
           
             // Perform edit request with updated data
-            const res = await axios.post('http://localhost:5000/api/auth/edituser', {
+            const res = await axios.post('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/auth/edituser', {
                 uid: editUserId,
                 username: editUserName,
                 email: editUserEmail
@@ -68,7 +68,7 @@ export default function AllUsers() {
             const {message}=res.data
             if(message=='s'){
                 try {
-                    const response = await axios.get('http://localhost:5000/api/admin/getuser');
+                    const response = await axios.get('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/admin/getuser');
                     const { message, ud } = response.data;
                     if (message === 'f') {
                         toast.error('No users available');
@@ -91,9 +91,9 @@ export default function AllUsers() {
         if(s=='inactive'){
            
             console.log('dfdf')
-            const res=await axios.post('http://localhost:5000/api/auth/active',{id:e,s:'active'})
+            const res=await axios.post('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/auth/active',{id:e,s:'active'})
             
-            const response = await axios.get('http://localhost:5000/api/admin/getuser');
+            const response = await axios.get('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/admin/getuser');
                 const { message, ud } = response.data;
                 if (message === 'f') {
                     toast.error('No users available');
@@ -107,8 +107,8 @@ export default function AllUsers() {
         else{
             console.log('sdsdsdsd')
             
-            const res=await axios.post('http://localhost:5000/api/auth/active',{id:e,s:'inactive'})
-            const response = await axios.get('http://localhost:5000/api/admin/getuser');
+            const res=await axios.post('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/auth/active',{id:e,s:'inactive'})
+            const response = await axios.get('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/admin/getuser');
                 const { message, ud } = response.data;
                 if (message === 'f') {
                     toast.error('No users available');
