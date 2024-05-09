@@ -9,7 +9,7 @@ export default function loanstatus() {
         async function loanstat(){
             const ud=localStorage.getItem('userdetail')
             const parse=JSON.parse(ud)
-            const res=await axios.get(`http://localhost:5000/api/transaction/loan-status/${parse.accountno}`)
+            const res=await axios.get(`https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/transaction/loan-status/${parse.accountno}`)
             const {message,ls}=res.data
             if(message=='f'){
                 sf(0)
