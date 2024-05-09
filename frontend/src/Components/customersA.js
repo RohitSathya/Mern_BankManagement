@@ -8,7 +8,7 @@ export default function customersA({func,func2}) {
     useEffect(()=>{
         async function getuser(){
            
-            const res=await axios.get(`http://localhost:5000/api/admin/getuser`)
+            const res=await axios.get(`https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/admin/getuser`)
             const {message,ud}=res.data
             if(message=='f'){
                 sf(0)
