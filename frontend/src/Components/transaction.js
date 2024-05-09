@@ -14,7 +14,7 @@ export default function transaction({data1,data2}) {
         async function getbal(){
             const userDetail = localStorage.getItem('userdetail');
             const parse = JSON.parse(userDetail);
-            const response = await axios.get(`http://localhost:5000/api/transaction/balance/${parse.accountno}`);
+            const response = await axios.get(`https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/transaction/balance/${parse.accountno}`);
             const { balance } = response.data;
             setBalance(balance);
         }
@@ -29,7 +29,7 @@ export default function transaction({data1,data2}) {
         else{
             const ud=localStorage.getItem('userdetail')
         const parse=JSON.parse(ud)
-        const response=await axios.post('http://localhost:5000/api/transaction/transfer',{type:'transfer',fromaccountno:parse.accountno,toaccountno:data2,amount:amount})
+        const response=await axios.post('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/transaction/transfer',{type:'transfer',fromaccountno:parse.accountno,toaccountno:data2,amount:amount})
         const {message}=response.data
         if(message=='s'){
             toast.success('Transaction Completed succesfully')
