@@ -14,7 +14,7 @@ const LoanApplicationComponent = ({data}) => {
   const submitApplication = async () => {
      const ud=localStorage.getItem('userdetail')
      const parse=JSON.parse(ud)
-     const res=await axios.post('http://localhost:5000/api/transaction/apply-loan',{userId:parse.accountno,loanAmount:loanAmount,durationMonths:duration,name:name,balance:data})
+     const res=await axios.post('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/transaction/apply-loan',{userId:parse.accountno,loanAmount:loanAmount,durationMonths:duration,name:name,balance:data})
      const {message}=res.data
      if(message=='s'){
         toast.success('Loan Applied Successfully')
