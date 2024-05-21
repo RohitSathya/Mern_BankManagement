@@ -24,7 +24,7 @@ export default function login() {
              navigate('/admindashboard')
        }
        else{
-        const response=await axios.post('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/auth/login',{username:username,password:password})
+        const response=await axios.post('https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/auth/login',{username:username,password:password})
         
         const {userdetail,token,message}=response.data
         if(message=='s'){
