@@ -52,7 +52,7 @@ export default function Home({ func }) {
             const a = document.getElementById('bal');
             const userDetail = localStorage.getItem('userdetail');
             const parse = JSON.parse(userDetail);
-            const response = await axios.get(`https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/transaction/balance/${parse._id}`);
+            const response = await axios.get(`https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/transaction/balance/${parse._id}`);
             const { balance } = response.data;
             setBalance(balance);
             a.style.display = 'block';
@@ -85,7 +85,7 @@ export default function Home({ func }) {
         if (action === 'deposit') {
             const am = Number(amount);
             
-            const res1=await axios.post('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/transaction/deposit',{accountno:parse.accountno,balance:am})
+            const res1=await axios.post('https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/transaction/deposit',{accountno:parse.accountno,balance:am})
             const {bal}=res1.data
             setBalance(bal);
             toast.success('Deposited successfully');
@@ -94,7 +94,7 @@ export default function Home({ func }) {
                 toast.error('Insufficient balance');
             } else {
                 const am2 = Number(amount);
-                const res2=await axios.post('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/transaction/withdraw',{accountno:parse.accountno,balance:am2})
+                const res2=await axios.post('https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/transaction/withdraw',{accountno:parse.accountno,balance:am2})
             const {bal}=res2.data
             setBalance(bal);
             toast.success('Deposited successfully');
@@ -110,7 +110,7 @@ export default function Home({ func }) {
         if (message.trim() !== '') {
           const ud=localStorage.getItem('userdetail')
           const parse=JSON.parse(ud)
-          const res=await axios.post('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/chat/sendmsg',{userId:parse._id,message:message,to:'Admin'})
+          const res=await axios.post('https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/chat/sendmsg',{userId:parse._id,message:message,to:'Admin'})
           const {m}=res.data
           if(m=='s'){
             setMessage('')
@@ -130,7 +130,7 @@ export default function Home({ func }) {
         const a = document.getElementById('bal');
         const userDetail = localStorage.getItem('userdetail');
         const parse = JSON.parse(userDetail);
-        const response = await axios.get(`https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/transaction/balance/${parse.accountno}`);
+        const response = await axios.get(`https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/transaction/balance/${parse.accountno}`);
         const { balance } = response.data;
         setBalance(balance);
         a.style.display = 'block';
@@ -188,7 +188,7 @@ export default function Home({ func }) {
         console.log(e)
         const m1=document.getElementById('m1');
         m1.style.display='block'
-         const res=await axios.get(`https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/chat/getmsgU/${e}`)
+         const res=await axios.get(`https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/chat/getmsgU/${e}`)
          const {m}=res.data
          if(m=='f'){
             sf(0)
@@ -207,7 +207,7 @@ export default function Home({ func }) {
             return;
         }
     
-        const res=await axios.post('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/chat/sendmsg',{userId:uid,message:inputMessage,to:'Admin'})
+        const res=await axios.post('https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/chat/sendmsg',{userId:uid,message:inputMessage,to:'Admin'})
         const {m}=res.data
         if(m=='s'){
             
@@ -216,7 +216,7 @@ export default function Home({ func }) {
             
         setInputMessage(''); 
         inputMessageRef.current.focus(); 
-        const res2=await axios.get(`https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/chat/getmsgU/${uid}`)
+        const res2=await axios.get(`https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/chat/getmsgU/${uid}`)
         setmessages(res2.data)
       
      
