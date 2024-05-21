@@ -11,7 +11,7 @@ export default function loanapproval() {
         async function loanstat(){
             const ud=localStorage.getItem('userdetail')
             const parse=JSON.parse(ud)
-            const res=await axios.get('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/transaction/loan-approval')
+            const res=await axios.get('https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/transaction/loan-approval')
             const {message,ls}=res.data
             if(message=='f'){
                 sf(0)
@@ -26,19 +26,19 @@ export default function loanapproval() {
         loanstat()
     },[])
     async function reject(id){
-        const res=await axios.delete(`https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/transaction/loan-reject/${id}`)
+        const res=await axios.delete(`https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/transaction/loan-reject/${id}`)
         const {message}=res.data
         if(message=='s'){
             navigate("/admindashboard")
             const ud=localStorage.getItem('userdetail')
             const parse=JSON.parse(ud)
-            const res=await axios.get(`https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/transaction/loan-approval`)
+            const res=await axios.get(`https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/transaction/loan-approval`)
             const {message}=res.data
             if(message=='s'){
                
                 const ud=localStorage.getItem('userdetail')
                 const parse=JSON.parse(ud)
-                const res=await axios.get('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/transaction/loan-approval')
+                const res=await axios.get('https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/transaction/loan-approval')
                 const {message,ls}=res.data
                 if(message=='f'){
                     sf(0)
@@ -55,21 +55,21 @@ export default function loanapproval() {
     }
     async function accept(id,amount,uid){
         console.log(id)
-        const res=await axios.get(`https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/transaction/loan-approve/${id}`)
+        const res=await axios.get(`https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/transaction/loan-approve/${id}`)
         const {message}=res.data
         if(message=='s'){
-            const res2=await axios.post(`https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/transaction/deposit`,{accountno:uid,balance:amount})
+            const res2=await axios.post(`https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/transaction/deposit`,{accountno:uid,balance:amount})
 
             navigate("/admindashboard")
             const ud=localStorage.getItem('userdetail')
             const parse=JSON.parse(ud)
-            const res=await axios.get(`https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/transaction/loan-approval`)
+            const res=await axios.get(`https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/transaction/loan-approval`)
             const {message}=res.data
             if(message=='s'){
                
                 const ud=localStorage.getItem('userdetail')
                 const parse=JSON.parse(ud)
-                const res=await axios.get('https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/transaction/loan-approval')
+                const res=await axios.get('https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/transaction/loan-approval')
                 const {message,ls}=res.data
                 if(message=='f'){
                     sf(0)
