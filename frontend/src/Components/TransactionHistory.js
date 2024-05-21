@@ -10,7 +10,7 @@ export default function TransactionHistory() {
         async function gethistory(){
             const ud=localStorage.getItem('userdetail')
             const parse=JSON.parse(ud)
-            const res=await axios.get(`https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/transaction/gettransactionbyid/${parse.accountno}`)
+            const res=await axios.get(`https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/transaction/gettransactionbyid/${parse.accountno}`)
             const {message,th}=res.data
             if(message=='f'){
                 sf(0)
