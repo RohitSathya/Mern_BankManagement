@@ -9,7 +9,7 @@ export default function customers({func}) {
         async function getuser(){
             const ud=localStorage.getItem('userdetail')
             const parse=JSON.parse(ud)
-            const res=await axios.get(`https://mern-bank-managementback-rohits-projects-a5c6d24a.vercel.app/api/auth/Egetuser/${parse.accountno}`)
+            const res=await axios.get(`https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/auth/Egetuser/${parse.accountno}`)
             setcustomers(res.data)
         }
         getuser()
