@@ -27,7 +27,7 @@ export default function register() {
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const check=emailRegex.test(email)
         if(check){
-            const response=await axios.post('https://bank-mernbackend-68pw3t8e7-rohits-projects-a5c6d24a.vercel.app/api/auth/register',{username:username,email:email,password:password,address:address,phone:phoneno,depositType:depositType})
+            const response=await axios.post('https://bank-mernbackend-l7amt71k6-rohits-projects-a5c6d24a.vercel.app/api/auth/register',{username:username,email:email,password:password,address:address,phone:phoneno,depositType:depositType})
             const {message}=response.data
             if(message=='s'){
                 navigate('/login')
